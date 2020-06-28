@@ -1,0 +1,61 @@
+.createPost {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.createPost-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.createPost-content h1 {
+  margin-bottom: 30px;
+  align-self: center;
+  font-size: 54px;
+  color: var(--secondary-color);
+}
+.createPost-content form {
+  margin: 20px auto;
+  padding: 64px;
+  max-width: 730px;
+  background: #FFF;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+}
+.createPost-content input {
+  flex: 1;
+  width: 600px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  border: 0;
+  padding: 12px 16px;
+  font-size: 20px;
+  color: #6C6C80;
+  font-family: 'Ubuntu';
+  cursor: text;
+}
+.mdEditor {
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
+}
+
+textarea {
+  outline: 0;
+  border: 0.5px var(--secondary-color) solid;
+  font-family: 'Noto Sans', sans-serif;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  margin-top: 64px;
+  width: 600px;
+  min-height: 300px;
+}
+.createPost-content form button {
+  align-self: center;
+  color: #f0f0f5;
+  width: 150px;
+}

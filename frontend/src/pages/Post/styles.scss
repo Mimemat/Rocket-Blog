@@ -1,0 +1,61 @@
+.postContent{
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: block;
+  flex: 1 0 auto;
+}
+.postHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 3rem
+}
+.postHead img {
+  overflow: hidden;
+  width: 600px;
+  background: no-repeat center center;
+  background-size: cover;
+  border-radius: 20px;
+}
+
+.postHead h1 {
+  font-size: 54px;
+  margin-bottom: 2rem;
+  color: var(--secondary-color);
+}
+
+
+.postMd {
+  display: -moz-box;
+  font-size: 19px;
+  overflow: visible;
+  max-width: 750px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.postMd img {
+  border-radius: 12px;
+  width: 100%;
+}
+.postMd a, .postMd p {
+  line-height: 2;
+}
+
+.postMd a {
+  color: var(--font-color);
+  text-decoration: none;
+  border-bottom: 1.5px solid;
+  border-bottom-color:#c0c0c9 ;
+  transition: all 0.2s ease-in;
+}
+.postMd a:hover {
+  border-bottom-color:var(--secondary-color);
+} 
+.postMd h1, h2, h3, h4, h5, h6 {
+  margin: 10px 0 20px;
+}
+.postMd img {
+  margin: 50px 0;
+}

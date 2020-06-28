@@ -1,0 +1,43 @@
+.logInPage {
+  height: 100vh;
+  color: #101D42;
+  display: block;
+}
+
+.logInForm {
+  padding: 64px;
+  margin: 128px auto;
+  max-width: 730px;
+  box-shadow: -1px 2px 3px 3px rgba(0,0,0,0.36);
+  background: #F9F9F9;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+}
+.logInForm h1 {
+  color: var(--secondary-color);
+  font-size: 48px;
+}
+.logInForm fieldset {
+  margin-top: 64px;
+  border: none;
+}
+button[type=submit] {
+  z-index: 0;
+  width: 260px;
+  height: 56px;
+  background: var(--main-color);
+  border-radius: 12px;
+  color: #dddddd;
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  margin-top: 64px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+ button[type=submit]:hover  {
+  background: var(--secondary-color);
+}

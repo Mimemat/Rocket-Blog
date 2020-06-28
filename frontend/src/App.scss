@@ -1,0 +1,27 @@
+:root {
+  --font-color: #12263A;
+  --main-color: #63B995;
+  --secondary-color: #1A535C;
+}
+
+* {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #F0F0F5 ;
+  -webkit-font-smoothing: antialiased;
+  color: var(--font-color);
+}
+div {
+  display: block;
+}
+body, input, button, h2, h3, p {
+  font-family: 'Noto Sans', sans-serif;
+}
+h1 {
+  font-family: 'Ubuntu';
+  font-weight: 700;
+}
