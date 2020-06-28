@@ -38,6 +38,7 @@
 .postMd img {
   border-radius: 12px;
   width: 100%;
+  margin: 50px 0;
 }
 .postMd a, .postMd p {
   line-height: 2;
@@ -56,6 +57,13 @@
 .postMd h1, h2, h3, h4, h5, h6 {
   margin: 10px 0 20px;
 }
-.postMd img {
-  margin: 50px 0;
+.postMd code {
+  border-radius: 12px;
+  padding:10px 1rem;
+  width: 100%;
+  display: block;
+  color: #ccc;
+  background: rgb(40, 41, 54);
+  text-shadow: none;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }

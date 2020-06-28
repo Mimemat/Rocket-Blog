@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Redirect } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
+import CodeBlock from '../../utils/code-block'
 
 import api from '../../services/api'
 import {Post as PostKey} from '../../utils/types'
@@ -35,6 +36,7 @@ const Post: React.FC = () => {
       <div className="postContent">
         <ReactMarkdown 
         className="postMd"
+        renderers={{ code: CodeBlock }}
         source={post?.content}/>
       </div>
     </div>

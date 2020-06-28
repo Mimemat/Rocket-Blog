@@ -35,11 +35,15 @@
 
 .headerContent .create svg {
   margin-left: 5px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .headerContent .create:hover {
   box-shadow: inset 60px 0 0 0 var(--secondary-color), inset -60px 0 0 0 var(--secondary-color);
   color: #dddddd;
+  svg {
+    transform: rotate(360deg);
+  }
 }
 .headerContent .divider {
   border-radius: 8px;
