@@ -1,6 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from '../../Models/User'
-
 import Application from '@ioc:Adonis/Core/Application'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import crypto from 'crypto'
@@ -50,13 +49,13 @@ export default class UsersController {
     return 'Your account has been created'
   }
 
-  public async index ({auth}: HttpContextContract) {
-    try {
+  public async index ({auth, response}: HttpContextContract) {
+    const isLogged = await auth.check()
+    if(isLogged) {
       return await auth.authenticate()
     }
-    catch(err) {
-      return err
-    }
+    response.status(400)
+    return 'Not Authenticated'
   }
 
   public async show ({params}: HttpContextContract) {
