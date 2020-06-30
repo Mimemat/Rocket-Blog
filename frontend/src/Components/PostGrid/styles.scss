@@ -34,3 +34,14 @@
   position: absolute;
   bottom: 10px;
 }
+.postSubText a {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #dddddd;
+  border-bottom: ridge 0.5px #3d3d41;
+  transition: all 0.5s ease-in-out;
+}
+.postSubText a:hover {
+  border-bottom-color: var(--secondary-color);
+}

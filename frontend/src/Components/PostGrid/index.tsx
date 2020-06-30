@@ -1,17 +1,10 @@
 import React, {useCallback} from 'react';
 
 import './styles.scss'
-import Post from '../../pages/Post';
 
-interface Post {
-  id: number, 
-  title: string,
-  author: string,
-  content: string,
-  thumbnail: string,
-  created_at: string,
-  updated_at: string
-}
+import { Post } from '../../utils/types'
+import { Link } from 'react-router-dom';
+
 interface props {
   Posts: Post[]
 }
@@ -42,7 +35,7 @@ const PostThumbnail = ({ Posts }: props) => {
 
         <h2>{post.title}</h2>
         <div className="postSubText">
-          <p>Por {post.author}</p>
+          <Link to={`/user/${post.author}`}>Por {post.author}</Link>
           <p>Há {convertDate(post.created_at)} atrás</p>
         </div>
       </a>

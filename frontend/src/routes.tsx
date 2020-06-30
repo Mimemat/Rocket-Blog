@@ -6,6 +6,7 @@ import Post from './pages/Post'
 import LogIn from './pages/Login'
 import Create from './pages/Create'
 import SignUp from './pages/SignUp'
+import User from './pages/User'
 
 const Routes: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Routes: React.FC = () => {
       <Route exact path="/" component={Landing}/>
       <Route exact path="/login" component={LogIn}/>
       <Route path="/post/:id" component={Post}/>
+      <Route path="/user/:userName" component={User}/>
       <Route exact path="/create" component={Create}/>
       <Route exact path="/signup" component={SignUp}/>
     </Router>

@@ -7,3 +7,9 @@ export interface Post {
   created_at: string,
   updated_at: string
 }
+
+export interface User {
+  name: string,
+  email: string,
+  pfp: string
+}

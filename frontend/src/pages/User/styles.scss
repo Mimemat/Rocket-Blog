@@ -1,0 +1,27 @@
+.userPage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+} 
+.userPage-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 10px 15px;
+}
+.userPage-content img {
+  height: 300px;
+  border-radius: 16px;
+}
+.userPage-content h1 {
+  font-size: 42px;
+  line-height: 1.2;
+}
+.userPage-content p{
+  line-height: 1.2;
+}
+.userPage-content .userInfo {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+}

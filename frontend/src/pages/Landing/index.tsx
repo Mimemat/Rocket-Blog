@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, useContext, useCallback} from 'react';
 
 import api from '../../services/api'  
 
@@ -21,7 +21,7 @@ const Landing: React.FC = () => {
     })
   }, [])
 
-  useEffect(() => {
+  const checkAuthInfo = useCallback(() => {
     if(signed) {
       api.get('/check', 
       {headers: {
@@ -34,6 +34,10 @@ const Landing: React.FC = () => {
       })
     }
   }, [setSigned, signed, token])
+
+  useEffect(() => {
+    checkAuthInfo()
+  }, [ checkAuthInfo ])
 
   return (
     <div>
