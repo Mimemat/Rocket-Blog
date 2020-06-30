@@ -8,6 +8,10 @@ Route.post('/posts', 'PostsController.store')
 
 Route.post('/login', 'AuthController.login')
 
-Route.get('/user', 'UsersController.index')
+Route.get('/logout', 'AuthController.logout')
+
+Route.get('/check', 'AuthController.check')
 
 Route.post('/sign', 'UsersController.create')
+
+Route.get('/users/:userName', 'UsersController.show')

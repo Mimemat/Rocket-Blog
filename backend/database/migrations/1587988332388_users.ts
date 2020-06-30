@@ -10,6 +10,7 @@ export default class UsersSchema extends BaseSchema {
       table.string('name', 255).notNullable()
       table.string('password', 180).notNullable()
       table.string('remember_me_token').nullable()
+      table.string('pfp').defaultTo('https://icon-library.com/images/yellow-discord-icon/yellow-discord-icon-17.jpg')
       table.timestamps(true)
     })
   }
