@@ -19,10 +19,6 @@
   color: var(--secondary-color);
   font-size: 48px;
 }
-.logInForm fieldset {
-  margin-top: 64px;
-  border: none;
-}
 button[type=submit] {
   z-index: 0;
   width: 260px;
@@ -41,3 +37,18 @@ button[type=submit] {
  button[type=submit]:hover  {
   background: var(--secondary-color);
 }
+.logInForm a {
+  margin-top: 3rem;
+  display: flex;  
+  color: var(--font-color);
+  text-decoration: none;
+}
+.logInForm a p {
+  border-bottom: 1.5px solid;
+  border-bottom-color:#c0c0c9 ;
+  transition: all 0.2s ease-in;
+}
+.logInForm a p:hover {
+  border-bottom-color: var(--secondary-color);
+}
+ 

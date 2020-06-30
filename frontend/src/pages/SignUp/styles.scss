@@ -1,0 +1,45 @@
+.signup {
+  height: 100vh;
+  display: block;
+}
+.signUpForm {
+  padding: 64px;
+  margin: 64px auto;
+  max-width: 730px;
+  box-shadow: -1px 2px 3px 3px rgba(0,0,0,0.36);
+  background: #F9F9F9;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+}
+.signUpForm h1 {
+  color: var(--secondary-color);
+  font-size: 48px;
+}
+.signUpForm .field {
+  color: #6C6C80;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.signUpForm .field-group {
+  // flex: 1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.signUpForm .field-group .field + .field{
+  margin-left: 24px;
+}
+.successAnimation {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signUpForm strong {
+ font-size: 16px;
+ color: rgb(180, 14, 14);
+}

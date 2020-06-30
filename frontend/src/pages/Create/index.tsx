@@ -1,4 +1,4 @@
-import React, {useContext, useState, ChangeEvent, FormEvent} from 'react';
+import React, {useContext, useState, ChangeEvent, FormEvent, useEffect} from 'react';
 import {Redirect, useHistory} from 'react-router-dom'
 import * as Yup from 'yup'
 
@@ -25,6 +25,7 @@ const Create: React.FC = () => {
   })
   const history = useHistory()
 
+  useEffect(() => { console.log(signed)}, [signed])
 
   function handleInputChange (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) {
     const {name, value} = event.target
@@ -77,7 +78,7 @@ const Create: React.FC = () => {
       <form onSubmit={handleSubmit}>
         <h1>Criar um post</h1>
         <input type="name" name="title" placeholder="Título" onChange={handleInputChange}/>
-        <Dropzone onFileUploaded={setSelectedImage}/> 
+        <Dropzone name="Thumbnail" onFileUploaded={setSelectedImage}/> 
           <textarea 
           onChange={handleInputChange}
           name="content" 

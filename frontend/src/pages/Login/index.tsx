@@ -1,6 +1,6 @@
 import React, {useRef, useContext} from 'react';
 import {SubmitHandler, FormHandles} from '@unform/core'
-import {useHistory, Redirect} from 'react-router-dom'
+import {useHistory, Redirect, Link} from 'react-router-dom'
 import {Form} from '@unform/web'
 import * as Yup from 'yup'
 
@@ -58,6 +58,11 @@ const LogIn: React.FC = () => {
       <Input label="Seu e-mail" name="email" type="email"/>
       <Input name="password" type="password" label="Sua senha"/>
       <button type="submit">Entrar</button>
+      <Link to="/signup">
+      <p>
+        Não tem uma conta?
+      </p>
+      </Link>
     </Form>
   </div>
   );

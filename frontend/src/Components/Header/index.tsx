@@ -1,12 +1,26 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+import React, {useContext} from 'react';
+import {Link, useHistory} from 'react-router-dom'
 
 import Logo from '../../assets/start-button.svg'
-import {FiPlus} from 'react-icons/fi'
+import {FiPlus, FiLogOut} from 'react-icons/fi'
+
+import AuthContext from '../../contexts/auth'
+import api from '../../services/api'
 
 import './styles.scss'
 
-const Header: React.FC = () => {
+const Header = () => {
+  const {signed, token} = useContext(AuthContext)
+  const history = useHistory()
+
+
+  async function handleLogOut() {
+    await api.get('/logout', {headers: {
+      'Authorization': `Bearer ${token}`
+    }})
+    history.push('/')
+  }
+
   return (
   <header className="pageHeader">
     <div className="headerContent">
@@ -18,6 +32,12 @@ const Header: React.FC = () => {
         Criar 
         <FiPlus size={16}/>
       </Link>
+      {signed && (
+        <button className="logout" onClick={handleLogOut}>
+          Logout
+          <FiLogOut size={14}/>
+        </button>
+      )}
     </div>
   </header>
   );

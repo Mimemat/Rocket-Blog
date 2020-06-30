@@ -1,15 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 
 import api from '../../services/api'  
 
 import Posts from '../../Components/PostGrid'
 import Header from '../../Components/Header'
-
-import './styles.scss'
+import AuthContext from '../../contexts/auth'
 
 import {Post} from '../../utils/types'
+import './styles.scss'
+
 
 const Landing: React.FC = () => {
+  const { signed, token, setSigned } = useContext(AuthContext)
+
   const [allPosts, setPosts] = useState<Post[]>([])
 
   useEffect(() => {
@@ -17,6 +20,20 @@ const Landing: React.FC = () => {
       setPosts(response.data)
     })
   }, [])
+
+  useEffect(() => {
+    if(signed) {
+      api.get('/check', 
+      {headers: {
+        'Authorization': `Bearer ${token}`
+      }}).then(response => {  
+        if((!response.data)) {
+          setSigned('none', false)
+          localStorage.removeItem('token')
+        }
+      })
+    }
+  }, [setSigned, signed, token])
 
   return (
     <div>

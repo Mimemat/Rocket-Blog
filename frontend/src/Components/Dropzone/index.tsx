@@ -6,9 +6,10 @@ import './styles.scss'
 
 interface Props {
   onFileUploaded: (file: File) => void;
+  name: string;
 }
 
-const Dropzone: React.FC<Props> = ({ onFileUploaded }) => {
+const Dropzone: React.FC<Props> = ({ onFileUploaded, name }) => {
   const [selectedFile, setSelectedFile] = useState('');
   const maxSize = 20971562
 
@@ -35,7 +36,7 @@ const Dropzone: React.FC<Props> = ({ onFileUploaded }) => {
        :(
         <p>
         <MdPublish />
-        Thumbnail
+        {name}
         </p>
        )
        }
