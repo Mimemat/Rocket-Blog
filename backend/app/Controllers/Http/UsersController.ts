@@ -3,7 +3,6 @@ import User from '../../Models/User'
 import Application from '@ioc:Adonis/Core/Application'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import crypto from 'crypto'
-import Database from '@ioc:Adonis/Lucid/Database'
 
 export default class UsersController {
   public async create ({request}: HttpContextContract) {
@@ -59,14 +58,12 @@ export default class UsersController {
   }
 
   public async show ({params}: HttpContextContract) {
-    const {userName} =  params
-    
-    const {name, email, pfp } = await Database.query().select('*').from('users').where('name', userName).first()
+    const {userId} =  params
 
-    return {
-      name,
-      email,
-      pfp
-    }
+    const user = await User.findBy('id', userId)
+    if(!user) {return 'No such user'}
+    const posts = await user.related('posts').query().select('*')
+
+    return {...user.$attributes, posts}
   }
 }

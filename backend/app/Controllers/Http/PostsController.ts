@@ -4,6 +4,7 @@ import Database from '@ioc:Adonis/Lucid/Database'
 import Application from '@ioc:Adonis/Core/Application'
 import crypto from 'crypto'
 import Post from '../../Models/Post'
+import User from '../../Models/User'
 
 export default class PostsController {
   public index () {
@@ -17,29 +18,32 @@ export default class PostsController {
       size: '2mb',
       extnames: ['jpg', 'png', 'jpeg'],
     })
-    const {name: author} = (await auth.authenticate())
+    const {name: author} = await auth.authenticate()
+    const user = await User.findBy('name', author)
 
-    if(!author) {
+    if(!author || !user) {
       return 'Bad token'
     }
-
-    if (!title || !content || !thumbnail) {
+    
+    else if (!title || !content || !thumbnail) {
       return 'Invalid request'
     }
 
     const thumbnailName = `${crypto.randomBytes(6).toString('hex')}.${thumbnail.extname}`
   
-    await Post.create({
-      title,
-      author,
-      content,
-      thumbnail: `http://localhost:3333/${thumbnailName}`
-    })
+
+    const post ={
+        title,
+        author,
+        content,
+        thumbnail: `http://localhost:3333/${thumbnailName}`}
+
+    const result = await user.related('posts').create(post)
     
     await thumbnail.move(Application.tmpPath('uploads'), {
       name: thumbnailName
     })
-    return {title, content, thumbnailName}
+    return result
   }
 
   public async show({params}: HttpContextContract) {

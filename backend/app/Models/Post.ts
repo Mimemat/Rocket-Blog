@@ -12,6 +12,9 @@ export default class Post extends BaseModel {
   public author: string
 
   @column()
+  public userId: string
+
+  @column()
   public content: string
 
   @column()

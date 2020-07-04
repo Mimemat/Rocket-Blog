@@ -14,6 +14,6 @@ Route.get('/check', 'AuthController.check')
 
 Route.post('/sign', 'UsersController.create')
 
-Route.get('/users/:userName', 'UsersController.show')
+Route.get('/users/:userId', 'UsersController.show')
 
 Route.get('/user', 'UsersController.index')
