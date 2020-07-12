@@ -19,6 +19,18 @@
   border-radius: 20px;
 }
 
+.postHead a {
+  color: var(--font-color);
+  text-decoration: none;
+  border-bottom: 1.5px solid;
+  border-bottom-color:#c0c0c9 ;
+  transition: all 0.2s ease-in;
+  margin-bottom: 5px;
+}
+.postHead a:hover {
+  border-bottom-color:var(--secondary-color);
+} 
+
 .postHead h1 {
   font-size: 54px;
   margin-bottom: 2rem;

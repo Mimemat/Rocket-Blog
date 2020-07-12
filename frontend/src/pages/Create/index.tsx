@@ -53,10 +53,10 @@ const Create: React.FC = () => {
           data.append('thumbnail', image)
         }
 
-        await api.post('/posts', data, {headers: {
+        const postId = await api.post('/posts', data, {headers: {
           'Authorization': `Bearer ${token}`
         }})
-        history.push('/')
+        history.push(`/post/${postId.data.id}`)
       }
       catch(err){
         alert('Algo deu errado, tente novamente mais tarde')

@@ -8,18 +8,13 @@ import AuthContext from '../../contexts/auth'
 
 import {Post} from '../../utils/types'
 import './styles.scss'
+import { useGet } from '../../hooks/useGet';
 
 
 const Landing: React.FC = () => {
   const { signed, token, setSigned } = useContext(AuthContext)
 
-  const [allPosts, setPosts] = useState<Post[]>([])
-
-  useEffect(() => {
-    api.get('/posts').then(response => {
-      setPosts(response.data)
-    })
-  }, [])
+  const {data: allPosts} = useGet<Post[]>('/posts')
 
   const checkAuthInfo = useCallback(() => {
     if(signed) {
@@ -31,6 +26,7 @@ const Landing: React.FC = () => {
           setSigned('none', false)
           localStorage.removeItem('token')
         }
+        
       })
     }
   }, [setSigned, signed, token])
@@ -39,11 +35,15 @@ const Landing: React.FC = () => {
     checkAuthInfo()
   }, [ checkAuthInfo ])
 
+  if(!allPosts) {
+    return <p>Loading</p>
+  }
+
   return (
     <div>
      <Header/>
       <div className="allPosts">
-          <Posts Posts={allPosts} />
+        <Posts Posts={allPosts} />
       </div>
     </div>
   );

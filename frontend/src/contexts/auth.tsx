@@ -1,6 +1,12 @@
 import React,{ createContext, useState } from 'react';
 
-const AuthContext = createContext({signed:false, token: 'none', setSigned:(token: string, force?: boolean) => {}});
+interface AuthContextData {
+    signed: boolean,
+    token: string,
+    setSigned(token: string, force: boolean): void,
+}
+
+const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) =>{
     const localToken = localStorage.getItem('token')
@@ -10,7 +16,6 @@ export const AuthProvider: React.FC = ({ children }) =>{
     const localAuth = tokenPassed !== 'none' ? true : false;
 
     const [signedPassed, setSignedPassed] = useState(localAuth)
-
     function changeAuth(token: string, force: boolean = true){
         setSignedPassed(force)
         setToken(token)

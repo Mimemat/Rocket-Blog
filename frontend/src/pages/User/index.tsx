@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 
-import { User as UserType, Post } from '../../utils/types'
+import { User as UserType } from '../../utils/types'
 import api from '../../services/api'
 import Header from '../../Components/Header'
 import PostGrid from '../../Components/PostGrid'
@@ -12,7 +12,6 @@ const User: React.FC = () => {
   const { userName } = useParams()
 
   const [userInfo, setUserInfo] = useState<UserType>()
-  const [posts, setPosts] = useState<Post[]>([])
 
 
   useEffect(() => {
@@ -21,11 +20,7 @@ const User: React.FC = () => {
     })
   }, [ userName ])
 
-  useEffect(() => {
-    api.get('/posts').then(response => {
-      setPosts(response.data.filter((post: Post) => post.author === userName ))
-    })
-  }, [userName])
+  
 
   return (
     <div className="userPage">
@@ -38,7 +33,7 @@ const User: React.FC = () => {
           <p>{userInfo?.email}</p>
           <img src={userInfo?.pfp} alt={userInfo?.name}/>
         </div>
-      <PostGrid Posts={posts}/>
+      {userInfo?.posts && <PostGrid Posts={userInfo.posts}/>}
       </div>
     </div>
   );

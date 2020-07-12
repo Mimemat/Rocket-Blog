@@ -29,7 +29,7 @@ const LogIn: React.FC = () => {
     try {
     const response: {data:{ type: string, token: string}} = await api.post('/login', data)
     localStorage.setItem('token', response.data.token)
-    setSigned(response.data.token)
+    setSigned(response.data.token, true)
     history.push('/create')
     }
     catch(err) {
